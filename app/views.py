@@ -34,7 +34,7 @@ class UserSignupView(APIView):
             User.objects.create_user(
                 email=user_data['email'], 
                 password=user_data['password'], 
-                username=user_data['username'],)
+                username=user_data['username'])
 
             user = authenticate(email=user_data['email'], password=user_data['password'])
             token, _ = Token.objects.get_or_create(user=user)
